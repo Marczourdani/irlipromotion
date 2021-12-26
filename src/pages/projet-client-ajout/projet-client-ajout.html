@@ -1,0 +1,50 @@
+<!--
+  Generated template for the ProjetClientAjoutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="marron">
+    <ion-title>ajouter un client</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+    <p><b>Choisir un client</b></p>
+    <ion-item>
+      <ion-label>Clients</ion-label>
+      <ionic-selectable item-content [(ngModel)]="value" itemValueField="NUM_CLIENT" itemTextField="PRENOM" 
+        [items]="client" [canSearch]="true" (onChange)="portChange($event)">
+        <ng-template ionicSelectableItemTemplate let-client="item" let-isClientSelected="isItemSelected">
+          {{client.PRENOM}}  {{client.NOM}}  ( {{client.DATE_NAISS}} ) 
+        </ng-template>
+      </ionic-selectable>
+    </ion-item>
+
+    <p><b>Choisir un Appartement</b></p>
+    <ion-item>
+      <ion-label>Appartements</ion-label>
+      <ionic-selectable item-content [(ngModel)]="valuee" itemValueField="NUM_BIEN" itemTextField="CODE_BIEN"
+        [items]="appartement" [canSearch]="true" (onChange)="portChangeA($event)">
+        <ng-template ionicSelectableItemTemplate let-appartement="item" let-isAppartementSelected="isItemSelected">
+          <P style="font-weight: 900; color: black;"> Bloc: {{appartement.CODE_BLOC}}</P>
+          <P style="font-weight: 900;"> Code appartement: {{appartement.CODE_BIEN}}</P>
+          <P style="font-weight: 900;"> Etage: {{appartement.ETAGE}}</P>
+          <P style="font-weight: 900;"> Code appartement: {{appartement.CODE_BIEN}}</P>
+          <P style="font-weight: 900;"> Etage: {{appartement.TAILLE}}</P>
+        </ng-template>
+      </ionic-selectable>
+    </ion-item>
+    
+    <p><b>Date de vente</b></p>
+    <ion-item>
+      <ion-label stacked>Date de vente</ion-label>
+      <ion-datetime doneText="OK" pickerFormat="DD/MM/YYYY" displayFormat="DD/MM/YYYY"  ></ion-datetime>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

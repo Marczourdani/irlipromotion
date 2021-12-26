@@ -1,0 +1,23 @@
+page-projet-detail {
+    ion-content{
+        background-color: rgba(201, 201, 212, 0.87)!important;
+      }
+    ion-card {
+      border-radius: 10px!important;
+     box-shadow: 5px 5px 5px 5px;
+        p {
+            font-weight: 900;
+            
+           
+        }
+        
+    }
+    
+  .slide-title {
+    margin-top: 10px;
+  }
+
+  .card-content-md{
+    background-color:#d6c315f8!important;
+  }
+}

@@ -1,0 +1,48 @@
+<!--
+  Generated template for the ClientVenteAppartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="marron">
+    <ion-title>Vendre un appartement</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+
+    <p><b>Choisir un Appartement</b></p>
+    <ion-item>
+      <ion-label>Appartements</ion-label>
+      <ionic-selectable item-content [(ngModel)]="value" itemValueField="NUM_BIEN" itemTextField="CODE_BIEN"
+        [items]="appartement" [canSearch]="true" (onChange)="portChange($event)">
+        <ng-template ionicSelectableItemTemplate let-appartement="item" let-isAppartementSelected="isItemSelected">
+          <P style="font-weight: 900; color: black;"> Bloc: {{appartement.CODE_BLOC}}</P>
+          <P style="font-weight: 900;"> Code appartement: {{appartement.CODE_BIEN}}</P>
+          <P style="font-weight: 900;"> Etage: {{appartement.ETAGE}}</P>
+          <P style="font-weight: 900;"> Code appartement: {{appartement.CODE_BIEN}}</P>
+          <P style="font-weight: 900;"> Etage: {{appartement.TAILLE}}</P>
+        </ng-template>
+      </ionic-selectable>
+    </ion-item>
+    <p><b>Date de vente</b></p>
+    <ion-item>
+      <ion-label stacked>Date de vente</ion-label>
+      <ion-datetime doneText="OK" pickerFormat="DD/MM/YYYY" displayFormat="DD/MM/YYYY" [(ngModel)]="vente_appart.DATE_ACHAT" ></ion-datetime>
+    </ion-item>
+
+  </ion-list>
+
+
+  <ion-fab right bottom style="margin-right: 15px;">
+    <button ion-button expand="round" (click)="vendreAppart(vente_appart,NUM_BIEN)" color="primary">
+      Confirmer
+
+    </button>
+  </ion-fab>
+
+
+</ion-content>

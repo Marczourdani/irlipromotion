@@ -1,0 +1,95 @@
+<!--
+  Generated template for the ProjetClientDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="marron">
+    <ion-title> {{PRENOM_CLIENT }} {{NOM_CLIENT }} </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+
+
+
+  <button ion-button (click)="getAppart(1)">Acheté</button>
+  <button ion-button (click)="getAppart(0)">Annulé</button>
+
+
+  <div *ngFor="let item of appartement">
+
+    <div *ngIf="show_achete==true && item.ETAT_TRANS==1">
+
+      <ion-card>
+        <ion-card-header style="background-color: rgba(163, 147, 147, 0.678);">
+          {{item.NUM_BIEN}}
+          <a>
+            <ion-icon name="ios-bookmarks"
+              style="float: right;color:#880d0d ;cursor: pointer;font-size: 25px;padding-right: 10px;"
+              (click)="historique(item.ID_TRANS)"></ion-icon>
+          </a>
+          <a>
+            <ion-icon name="ios-create"
+              style="float: right;color:#880d0d ;cursor: pointer;font-size: 25px;padding-right: 10px;"
+              (click)="versement(item.ID_TRANS)"></ion-icon>
+          </a>
+          <a title="annuler">
+            <ion-icon name="ios-trash"
+              style="float: right;color:#880d0d;cursor: pointer;font-size: 25px;padding-right: 10px;"
+              (click)="annulerAchat(item.NUM_CLIENT,item.NUM_BIEN)"></ion-icon>
+          </a>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Code Bloc: {{item.NOM}}</p>
+          <p>Code d'appartement: {{item.PRENOM}}</p>
+          <p>Etage: {{item.PRENOM}}</p>
+          <p>Superficie: {{item.PRENOM}}</p>
+          <p>Date d'achat: {{item.DATE_ACHAT}}</p>
+          <p>Prix d'achat: {{item.PRIX}}</p>
+          <p>Total payé: {{item.TOTALPAYE}}</p>
+          <p>Reste à payer payé: {{item.RESTE}}</p>
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+</div>
+<div *ngFor="let item of appartement">
+    <div *ngIf="show_annule==true && item.ETAT_TRANS==0">
+      <ion-card>
+        <ion-card-header>
+          {{item.NUM_BIEN}}
+          <a>
+            <ion-icon name="ios-bookmarks"
+              style="float: right;color:#880d0d ;cursor: pointer;font-size: 25px;padding-right: 10px;"
+              (click)="historique(item.ID_TRANS)"></ion-icon>
+          </a>
+          <a>
+            <ion-icon name="ios-create"
+              style="float: right;color:#880d0d ;cursor: pointer;font-size: 25px;padding-right: 10px;"
+              (click)="versement(item.ID_TRANS)"></ion-icon>
+          </a>
+        </ion-card-header>
+        <ion-card-content>
+          
+          <p>Code d'appartement: {{item.NUM_BIEN}}</p>
+        
+          <p>Date d'annulation: {{item.DATE_ANNULATION}}</p>
+ 
+          <p>Total payé: {{item.TOTALPAYE}}</p>
+          <p>Reste à Remboursser: {{item.RESTE}}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+  </div>
+
+  <ion-fab right bottom style="margin-right: 15px;">
+    <button ion-fab (click)="vendreAppart(NUM,NUM_CLIENT)" color="marron1">
+      <ion-icon ios="ios-pricetags" md="md-pricetags"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

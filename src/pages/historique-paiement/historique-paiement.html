@@ -1,0 +1,29 @@
+<!--
+  Generated template for the HistoriquePaiementPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="marron">
+    <ion-title>historique des paiements</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="historique.length==0">
+    <p>Le client n'a pas encore versé !</p>
+ </div>
+  <div *ngFor="let item of historique">
+     
+    <ion-card>
+      <ion-card-content>
+        <p><b>Date transaction:</b> {{item.DATE_P}}</p>
+        <p *ngIf="!item.OBSERVATION==''"><b>Observation:</b> {{item.OBSERVATION}}</p>
+        <p><b>Montant réglé:</b> {{item.CREDIT}}</p>
+
+      </ion-card-content>
+
+    </ion-card>
+  </div>
+</ion-content>

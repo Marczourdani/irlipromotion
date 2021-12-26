@@ -1,0 +1,37 @@
+<!--
+  Generated template for the SousTraitFichePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{NUM_ST}}</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon ios="ios-close" md="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h5>Nom: {{aj_sous_trait.NOM}}</h5>
+          <h5>Prénom: {{aj_sous_trait.PRENOM}}</h5>
+          <h5>Date de naissance:{{aj_sous_trait.DATE_NAISS}}</h5>
+          <h5>Adresse: {{aj_sous_trait.ADRESSE}}</h5>
+          <h5>Email: {{aj_sous_trait.EMAIL}}</h5>
+          <h5>Numéro de téléphone: {{aj_sous_trait.TEL}}</h5>
+          <h5>TACHE_PRINCIPAL: {{aj_sous_trait.TACHE_PRINCIPAL}}</h5>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

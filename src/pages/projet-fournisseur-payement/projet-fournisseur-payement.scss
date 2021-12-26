@@ -1,0 +1,26 @@
+page-projet-fournisseur-payement {
+    font-family:  Roboto;
+    ion-label {
+        color: black !important;
+        font-size: 17px !important;
+        font-weight: 600;
+    }
+    .redIcon {
+        color: red;
+    }
+    ion-item {
+        margin-bottom: 20px !important;
+    }
+    input{
+        font-size: 14px!important;
+        padding: 1px 7px!important;
+    }
+
+    ion-label {
+       color: rgba(32, 13, 13, 0.863)!important;
+    }
+    ion-datetime{
+        font-size: 14px!important;
+        padding: 5px 8px!important;
+    }
+}

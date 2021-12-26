@@ -1,0 +1,102 @@
+<!--
+  Generated template for the ProjetClientPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="marseille">
+    <ion-title end>{{NOM_DU_PROJET}}</ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col col-md-7>
+
+        <ion-searchbar style="margin-top: 40px!important; margin-bottom: 25px!important;" placeholder="Rechercher..."
+          [(ngModel)]="query" (ionChange)="search_client(query)"></ion-searchbar>
+
+        <div *ngIf="searchMode">
+          <h5 *ngIf="client.length==0" text-center class="redIcon"> <br>Le fournisseur <b>{{ query }} n'existe pas !!!</b>
+          </h5>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-col col-md-7>
+        <ion-card *ngFor="let item of client" style="box-shadow: black 10px 10px 10 10px;">
+
+          <ion-card-header style="background-color:#b48f5ef8 ;padding-bottom: 8px;padding-top: 8px;">
+         <p> <span style="font-size: 18px; font-weight: 700;"> {{item.PRENOM}} {{item.NOM}} <b style="float: right">  Achetés: {{item.NBRACHAT}}   Annulés: {{item.NBRANNULEE}} </b> </span>
+          <!-- <a>
+            <ion-icon ios="ios-card" md="md-card"
+              style="float: right;color:#880d0d ;cursor: pointer;font-size: 25px;padding-right: 10px;"
+              (click)="versementFr(NUM_PROJET,item.NUM_FOURNISSEUR)"></ion-icon>
+          </a>
+        <a>
+          <ion-icon ios="ios-cart" md="md-cart"
+            style="float: right;color:#880d0d ;cursor: pointer;font-size: 25px;padding-right: 10px;"
+            (click)="Achatfournisseur(item.NUM_FOURNISSEUR)"></ion-icon>
+        </a> -->
+        </p> 
+          </ion-card-header>
+          <ion-card-content style="padding-top: 10px;">
+
+
+            <P><b>Total Achat: </b> {{format(item.PRIX)}}</P>
+            <P><b>Montant payé: </b> {{format(item.TOTALPAYE)}}</P>
+            <P><b>Reste à payé: </b> {{format(item.RESTE)}}
+
+              <span style="float: right;" (click)="goToFicheClient(NUM,item.NUM_CLIENT,item.NOM,item.PRENOM)">
+                <span class="a"
+                  style="font-weight:600; color: rgb(3, 65, 180); font-size: 17px; float: right; cursor: pointer; margin-right:10px;">
+                  détails</span>
+              </span>
+            </P>
+
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+   
+    <!-- <ion-row justify-content-center >
+      <ion-col col-md-7>
+        
+        <ion-list>
+          <ion-item-sliding *ngFor="let item of client">
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="assets/imgs/person.png"
+                  style="width: inherit !important;text-align: center;display: inline-block;" />
+              </ion-avatar>
+              <span (click)="goToFicheClient(NUM,item.NUM_CLIENT,item.NOM,item.PRENOM)" style="cursor: pointer;">
+                <h3>{{item.NUM_CLIENT}}<br></h3>
+                <span style="font-size: 15px;color:#3e3d41; font-weight: 600;"> {{item.PRENOM}} {{item.NOM}}</span>
+                <span style="float: right; font-size: 20px;">
+                  <ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+                </span>
+              </span>
+            </ion-item>
+        
+             
+            
+          </ion-item-sliding>
+
+        </ion-list>
+      </ion-col>
+      <p *ngIf="this.client.length==0">Vous n'avez pas encore vendu des appartements !</p>
+    </ion-row> -->
+  </ion-grid>
+
+  <ion-fab right bottom style="margin-right: 15px;">
+    <button ion-fab (click)="addClient(item.NUM)" color="marseille">
+      <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

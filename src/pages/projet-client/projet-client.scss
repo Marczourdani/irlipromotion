@@ -1,0 +1,28 @@
+page-projet-client {
+   ion-content{
+        background-color: rgba(201, 201, 212, 0.87)!important;
+      }
+      ion-searchbar .searchbar-md .searchbar-search-icon, .searchbar-md .searchbar-md-cancel {
+        // margin-top: 40px!important;
+       position: absolute!important;
+       background-repeat: no-repeat!important;
+       background-size: 29px!important;
+       
+   }
+   .searchbar-md .searchbar-input{
+       height: 50px!important;
+       border-radius: 10px!important;
+       
+   }
+   ion-card{
+    border-radius: 10px!important;
+    
+  }
+  ion-card-content{
+      padding-left: 25px!important;
+  }
+  .a:hover{
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+}

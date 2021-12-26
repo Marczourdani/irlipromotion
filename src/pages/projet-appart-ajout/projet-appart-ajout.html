@@ -1,0 +1,54 @@
+<!--
+  Generated template for the ProjetAppartAjoutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="marron">
+    <ion-title>Ajouter un appartement</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Nombre d'appartement </ion-label>
+      <ion-input type="number"  [(ngModel)]="aj_appart.nbr"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Code bloc</ion-label>
+      <ion-input type="text"  [(ngModel)]="aj_appart.CODE_BLOC"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Code d'appartement</ion-label>
+      <ion-input  type="text"  [(ngModel)]="aj_appart.CODE_BIEN"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Etage</ion-label>
+      <ion-input  type="number" [(ngModel)]="aj_appart.ETAGE"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Type</ion-label>
+      <ion-input  type="text"   [(ngModel)]="aj_appart.TAILLE"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Superficie</ion-label>
+      <ion-input  type="number" [(ngModel)]="aj_appart.SUPERFICE"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Prix total 1</ion-label>
+      <ion-input  type="number" [(ngModel)]="aj_appart.PRIX_TOT_1"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Prix total 2</ion-label>
+      <ion-input  type="number"  [(ngModel)]="aj_appart.PRIX_TOT_2"></ion-input>
+    </ion-item>
+   
+  </ion-list>
+  <ion-fab right bottom style="margin-right: 15px;">
+    <button ion-fab (click)="validerAppart(aj_appart,nbr)" color="secondary">
+      <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

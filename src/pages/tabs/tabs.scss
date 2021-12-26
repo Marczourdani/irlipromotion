@@ -1,0 +1,38 @@
+page-tabs {
+
+    .tab-active .tab-button[aria-selected=true] .tab-button-icon {
+    color: #810808;
+    //color: #2C061F;
+        -webkit-transform: translate3d(0, -2px, 0);
+        transform: translate3d(0, -2px, 0);
+    }
+
+
+// color du text de la tab active 
+.tab-active .tab-button[aria-selected=true] {
+   color: #810808;
+  //color: #2C061F
+
+}
+
+
+// color de l'icon
+.tab-active .tab-button-icon{
+    color: #000000;
+    font-size: 30px;
+    font-weight: 600;
+}
+// text en bas de l'icon
+.tab-active .tab-button {
+    min-height: 5.6rem;
+    font-weight: bold;
+    color:#000000;
+   
+}
+
+
+}
+
+
+
+

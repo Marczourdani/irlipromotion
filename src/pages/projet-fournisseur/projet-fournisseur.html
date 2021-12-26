@@ -1,0 +1,75 @@
+<!--
+  Generated template for the ProjetFournisseurPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="marseille">
+    <ion-title>{{NOM_DU_PROJET}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col col-md-7>
+
+        <ion-searchbar style="margin-top: 40px!important; margin-bottom: 25px!important;" placeholder="Rechercher..."
+          [(ngModel)]="query" (ionChange)="search_fournisseur(query)"></ion-searchbar>
+
+        <div *ngIf="searchMode">
+          <h5 *ngIf="fournisseur.length==0" text-center class="redIcon"> <br>Le fournisseur <b>{{ query }} n'existe pas !!!</b>
+          </h5>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-col col-md-7>
+        <ion-card *ngFor="let item of fournisseur" style="box-shadow: black 10px 10px 10 10px;">
+
+          <ion-card-header style="background-color:#ac9b49f8 ;padding-bottom: 8px;padding-top: 8px;">
+            <p> <span style="font-size: 18px; font-weight: 700;">{{item.NOM}} {{item.PRENOM}}</span>
+              <a>
+                <ion-icon ios="ios-card" md="md-card"
+                  style="float: right;color:#880d0d ;cursor: pointer;font-size: 25px;padding-right: 10px;"
+                  (click)="versementFr(NUM_PROJET,item.NUM_FOURNISSEUR)"></ion-icon>
+              </a>
+            <a>
+              <ion-icon ios="ios-cart" md="md-cart"
+                style="float: right;color:#880d0d ;cursor: pointer;font-size: 25px;padding-right: 10px;"
+                (click)="Achatfournisseur(item.NUM_FOURNISSEUR)"></ion-icon>
+            </a> 
+              <!-- <a title="Supprimer">
+              <ion-icon name="ios-trash"
+                style="float: right;color:#880d0d;cursor: pointer;font-size: 25px;padding-right: 10px;"
+                (click)="supprimerfournisseur(item.NUM_FOURNISSEUR)"></ion-icon>
+            </a> -->
+            </p>
+          </ion-card-header>
+          <ion-card-content style="padding-top: 10px;">
+
+
+            <P><b>Total Achat: </b> {{format(item.ACHAT)}}</P>
+            <P><b>Montant payé: </b> {{format(item.PAYEMENT)}}</P>
+            <P><b>Reste à payé: </b> {{format(item.RESTE)}}
+
+              <span style="float: right;" (click)="detailAchat(NUM_PROJET,item.NUM_FOURNISSEUR)">
+                <span class="a"
+                  style="font-weight:600; color: rgb(3, 65, 180); font-size: 17px; float: right; cursor: pointer; margin-right:10px;">
+                  détails</span>
+              </span>
+            </P>
+
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab right bottom style="margin-right: 15px;">
+    <button ion-fab (click)="ajouterFournisseur(NUM_PROJET)" color="marseille">
+      <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

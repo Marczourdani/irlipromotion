@@ -1,0 +1,33 @@
+page-total-balance {
+  font-family:  Roboto;
+    ion-content{
+        background-color: rgba(201, 201, 212, 0.87)!important;
+      }
+      table {
+        border-collapse: collapse;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 95%;
+      }
+      .data{
+      th, td {
+        padding: 10px 30px;
+        background: rgb(225, 225, 0);
+        border-bottom: 2px solid white; 
+        font-weight: 600!important;
+        text-align: left;
+      }
+    }
+      .entree{
+        th, td {
+          padding: 10px 30px;
+          background:  rgb(225, 225, 0);
+          border-bottom: 2px solid white; 
+          font-weight: 600!important;
+          text-align: left;
+        }
+      }
+
+      
+    }
+

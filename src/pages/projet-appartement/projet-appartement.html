@@ -1,0 +1,107 @@
+<!--
+  Generated template for the ProjetAppartementPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="marron">
+    <ion-title>{{NOM_DU_PROJET}} {{NUM}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row justify-content-center>
+
+      <ion-col col-md-3>
+        <ion-item>
+          <ion-label>Bloc</ion-label>
+          <!-- (ionChange)="filterItem(aj_appart.CODE_BLOC) -->
+          <ion-select [(ngModel)]="aj_appart.CODE_BLOC" (ionChange)="filterItem(aj_appart.CODE_BLOC,value)"
+            interface="popover">
+
+            <ion-option *ngFor="let item of bloc" value="{{item.CODE_BLOC}}">{{item.CODE_BLOC}}</ion-option>
+
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col col-md-3 *ngIf="selected==true">
+        <ion-item>
+          <ion-label>Etat</ion-label>
+          <ion-select [(ngModel)]="value" (ionChange)="filterItemEtat(aj_appart.CODE_BLOC,value)" interface="popover">
+
+            <ion-option value="0">Libre</ion-option>
+            <ion-option value="1">Vendu</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+  <div *ngIf="selected_data==true">
+    <div *ngFor="let item of bloc2">
+
+      <ion-card>
+        <ion-card-header style="background-color: #b0bb9e;padding-bottom:8px;padding-top:8px;"
+          [ngClass]="{'hasErrorSty':item.ETAT==0,'ValideSty':item.ETAT==1}">
+          {{item.CODE_BIEN}}
+
+        </ion-card-header>
+        <ion-card-content>
+
+          <P><b>Etage:</b>{{item.ETAGE}}</P>
+          <P><b>Type:</b>{{item.TAILLE}}</P>
+          <P><b>Superficie:</b>{{item.SUPERFICIE}}</P>
+          <P><b>Prix 1:</b>{{item.PRIX_TOT_1}}</P>
+          <P><b>Prix 2:</b>{{item.PRIX_TOT_1}} </P>
+        </ion-card-content>
+
+      </ion-card>
+    </div>
+
+  </div>
+  <div *ngIf="selected==true">
+
+
+    <div *ngFor=" let item of appartement">
+
+
+      <ion-card>
+
+        <ion-card-header style="background-color: #b0bb9e;padding-bottom:8px;padding-top:8px;"
+          [ngClass]="{'hasErrorSty':item.ETAT==0,'ValideSty':item.ETAT==1}">
+          <p *ngIf="item.ETAT==1">{{item.NOM}}</p>
+          <p *ngIf="item.ETAT==0">{{item.CODE_BIEN}}</p>
+        </ion-card-header>
+        <ion-card-content>
+
+          <P><b>Etage:</b>{{item.ETAGE}} </P>
+          <P><b>Type:</b>{{item.TAILLE}}</P>
+          <P><b>Superficie:</b>{{item.SUPERFICIE}}</P>
+          <P><b>Prix 1:</b>{{item.PRIX_TOT_1}}</P>
+          <P><b>Prix 2:</b>{{item.PRIX_TOT_1}}<button ion-button style="float: right;" *ngIf="item.ETAT=='1'"
+              (click)="versement(aj_versement)">Versement</button><button ion-button style="float: right;"
+              *ngIf="item.ETAT=='1'" (click)="annulerAchat(item.NUM_CLIENT,item.NUM_BIEN)"> Annuler l'achat</button>
+            <button ion-button *ngIf="item.ETAT=='0'" style="float: right;" (click)="vendreAppart(item.NUM_BIEN,NUM)">
+              Vendre</button>
+          </P>
+        </ion-card-content>
+
+      </ion-card>
+
+
+
+    </div>
+
+  </div>
+
+
+
+  <ion-fab right bottom style="margin-right: 15px;">
+    <button ion-fab (click)="addAppart(aj_appart.NUM_BIEN,NUM)" color="marron1">
+      <ion-icon ios="ios-person-add" md="md-person-add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

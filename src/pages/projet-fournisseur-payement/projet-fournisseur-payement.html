@@ -1,0 +1,53 @@
+<!--
+  Generated template for the ProjetFournisseurPayementPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="marseille">
+    <ion-title> Payement fournisseur </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list style="padding: 32px 10px;">
+  <ion-item>
+    <ion-label>Compte</ion-label>
+    <ion-select [(ngModel)]="aj_payement_fr.NUM_COMPTE">
+
+      <ion-option value="1">Caisse</ion-option>
+      <ion-option value="2">Comptable</ion-option>
+    </ion-select>
+
+  </ion-item>
+  <ion-item>
+    <ion-label>Type transaction</ion-label>
+    <ion-select [(ngModel)]="type" >
+
+      <ion-option value="db">Débit</ion-option>
+      <ion-option value="cr">Crédit</ion-option>
+    </ion-select>
+
+  </ion-item>
+  <ion-item >
+    <ion-label stacked>Montant</ion-label>
+    <ion-input clearInput placeholder=" Ex:  50 000 000 da" type="number" [(ngModel)]="montant" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Observation</ion-label>
+    <ion-input clearInput placeholder=" Ex:  Observation" type="text" [(ngModel)]="aj_payement_fr.OBSERVATION" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Date</ion-label>
+    <ion-datetime placeholder="20-11-2021" doneText="OK" pickerFormat="DD/MM/YYYY" displayFormat="DD/MM/YYYY" [(ngModel)]="aj_payement_fr.DATE_P"></ion-datetime>
+  </ion-item>
+</ion-list>
+ 
+  <ion-fab right bottom style="margin-right: 20px; margin-bottom: 20px;">
+    <button ion-fab (click)="validerFournisseur(aj_payement_fr)" color="marseille2">
+      <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
+
+    </button>
+  </ion-fab>
+</ion-content>

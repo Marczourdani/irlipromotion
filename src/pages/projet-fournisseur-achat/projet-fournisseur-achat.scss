@@ -1,0 +1,16 @@
+page-projet-fournisseur-achat {
+    font-family:  Roboto;
+    ion-label{
+        
+    }
+    ion-content{
+        background-color: rgba(201, 201, 212, 0.87)!important;
+      }
+        .hasErrorSty {
+            background-color: chartreuse !important;
+        }
+        .ValideSty {
+            background-color: cyan !important;
+        }
+    
+}

@@ -1,0 +1,65 @@
+<!--
+  Generated template for the ProjetPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="marseille">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>IRLI Promotion</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)" enabled>
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-grid>
+    
+    <ion-row justify-content-center>
+      <ion-col col-md-7>
+       
+   
+            <ion-searchbar style="margin-top: 40px!important; margin-bottom: 25px!important;" placeholder="Rechercher..." [(ngModel)]="query" (ionChange)="search_projet(query)"></ion-searchbar>
+            <!-- <ion-label  floating>Recherche ...</ion-label>
+            <ion-input style="margin-top: 40px!important;" placeholder="Rechercher..." type="text" [(ngModel)]="query" (ionChange)="search_projet(query)"></ion-input> -->
+         
+        <div *ngIf="searchMode">
+          <h5 *ngIf="projet.length==0" text-center class="redIcon"> <br>Le projet <b>{{ query }} n'existe pas !!!</b></h5>
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row justify-content-center *ngFor=" let item of projet">
+      <ion-col col-md-7>
+      
+        <ion-card>
+          <ion-card-header  style="background-color:#d6c315f8 ;padding-bottom: 8px;padding-top: 8px;">
+          <p style="font-size: 18px; font-weight: bold;">{{item.NOM_DU_PROJET}}
+          <a style="float: right; color: black;font-size: 21px; margin-left: 15px;"  (click)="modifierProjet(item.NUM)">  <ion-icon ios="ios-brush" md="md-brush"></ion-icon></a>
+          <a style="float: right; color: black; font-size: 23px; "  (click)="suprimerProjet(item.NUM)">   <ion-icon ios="ios-close" md="md-close" ></ion-icon></a>
+        </p> 
+          </ion-card-header>
+          <ion-card-content (click)="detailProjet(item.NOM_DU_PROJET,item.NUM)" style="cursor: pointer;padding: 10px;">
+          <p><b>Adresse: </b> {{item.ADRESSE}}</p> 
+          <p><b>Delai de réalisation: </b> {{item.DELAI_REALISATION}} mois</p> 
+          <p><b>Date Début de projet: </b>{{item.DATE_DEBUT_PROJET}}</p> 
+          <p><b>Date fin de projet: </b> {{item.DATE_FIN_PROJET}} <span (click)="detailProjet(item.NOM_DU_PROJET,item.NUM)" class="a"style="font-weight:600; color: rgb(3, 65, 180); font-size: 17px; float: right; cursor: pointer; margin-right:10px;"> Aller</span></p> 
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+
+    </ion-row>
+
+  </ion-grid>
+  <ion-fab right bottom style="margin-right: 15px;">
+    <button ion-fab (click)="ajoutprojet()" color="marseille">
+      <ion-icon ios="ios-folder-open" md="md-folder-open"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

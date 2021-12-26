@@ -1,0 +1,45 @@
+<!--
+  Generated template for the ProjetStAjoutPayementPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>projet-st-ajout-payement</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Compte</ion-label>
+    <ion-select [(ngModel)]="aj_paye_st.NUM_COMPTE">
+
+      <ion-option value="1">Caisse</ion-option>
+      <ion-option value="2">Comptable</ion-option>
+    </ion-select>
+
+  </ion-item>
+  <ion-item>
+    <ion-label>Type transaction</ion-label>
+    <ion-select [(ngModel)]="type" >
+
+      <ion-option value="db">Débit</ion-option>
+      <ion-option value="cr">Crédit</ion-option>
+    </ion-select>
+
+  </ion-item>
+  <ion-item >
+    <ion-label stacked>Montant</ion-label>
+    <ion-input clearInput placeholder="50 000 000 da" type="number" [(ngModel)]="montant" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Observation</ion-label>
+    <ion-input clearInput  type="text" [(ngModel)]="aj_paye_st.OBSERVATION" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Date</ion-label>
+    <ion-datetime doneText="OK" pickerFormat="DD/MM/YYYY" displayFormat="DD/MM/YYYY" [(ngModel)]="aj_paye_st.DATE_P"></ion-datetime>
+  </ion-item>
+  <button ion-button (click)="validerST(aj_paye_st)"> ccccc</button>
+</ion-content>

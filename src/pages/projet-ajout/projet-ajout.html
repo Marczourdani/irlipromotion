@@ -1,0 +1,55 @@
+<!--
+  Generated template for the ProjetAjoutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="marseille">
+    <ion-title>Ajouter un nouveau projet</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list style="padding: 32px 10px;">
+
+    <ion-item>
+      <ion-label stacked>Nom du projet</ion-label>
+      <ion-input clearInput placeholder="Ex:  Résidance de Marseille" type="text" [(ngModel)]="aj_projet.NOM_DU_PROJET">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Adresse</ion-label>
+      <ion-input clearInput placeholder=" Ex:  Vieux port" type="text" [(ngModel)]="aj_projet.ADRESSE"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Nombre de bloc</ion-label>
+      <ion-input clearInput placeholder="Ex:  10" type="number" [(ngModel)]="aj_projet.NOMBRE_BLOC"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Délai de réalisation</ion-label>
+      <ion-input placeholder="Ex:  12 mois" type="number" [(ngModel)]="aj_projet.DELAI_REALISATION"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Date début du projet</ion-label>
+      <ion-datetime pickerFormat="DD/MM/YYYY" displayFormat="DD/MM/YYYY" placeholder="20-11-2021"
+        [(ngModel)]="aj_projet.DATE_DEBUT_PROJET"></ion-datetime>
+
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Date fin du projet</ion-label>
+      <ion-datetime doneText="OK" pickerFormat="DD/MM/YYYY" displayFormat="DD/MM/YYYY" placeholder="20-11-2021"
+        [(ngModel)]="aj_projet.DATE_FIN_PROJET"></ion-datetime>
+
+    </ion-item>
+
+  </ion-list>
+
+  <ion-fab right bottom style="margin-right: 20px; margin-bottom: 20px;">
+    <button ion-fab (click)="validerProjet(aj_projet)" color="marseille2">
+      <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
+
+    </button>
+  </ion-fab>
+</ion-content>

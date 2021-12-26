@@ -1,0 +1,45 @@
+<!--
+  Generated template for the TotalBalancePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="marseille">
+    <ion-title>{{NOM_DU_PROJET}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col col-md-5>
+        <div *ngFor="let item of balance" >
+          <p style="font-size: 20px; text-align: center; margin-bottom: 45px;"><b>Total dettes:</b> <br>{{format(item.DETTE)}} DZD</p>
+        </div>
+        <table class="data">
+          <tr *ngFor="let item of dette">
+            <th>{{item.NOM}}</th>
+            <th>{{item.PRENOM}}</th>
+            <th style="text-align: right;">{{format(item.DETTE)}}</th>
+          </tr>
+        </table>
+      </ion-col>
+      <ion-col col-md-5>
+        <div *ngFor="let item of balance">
+          <p style="font-size: 20px;text-align: center; margin-bottom: 45px;"><b>Estimation d'entrée d'argent :</b> <br> {{format(item.ENTREE)}} DZD</p>
+        </div>
+        <table class="entree">
+          <tr *ngFor="let item of entree">
+            <th style=" font-weight: 600!important;">{{item.NOM}}</th>
+            <th style=" font-weight: 600!important;">{{item.PRENOM}}</th>
+            <th style="text-align: right;">{{format(item.ENTREE)}}</th>
+          </tr>
+        </table>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

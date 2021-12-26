@@ -1,0 +1,54 @@
+<!--
+  Generated template for the VersementClientAppartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="marron">
+    <ion-title>page de versement</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+ 
+    <ion-item>
+      <ion-label>Compte</ion-label>
+      <ion-select [(ngModel)]="aj_versement.NUM_COMPTE">
+
+        <ion-option value="1">Caisse</ion-option>
+        <ion-option value="2">Comptable</ion-option>
+      </ion-select>
+
+    </ion-item>
+    <ion-item>
+      <ion-label>Type transaction</ion-label>
+      <ion-select [(ngModel)]="type" >
+
+        <ion-option value="db">Débit</ion-option>
+        <ion-option value="cr">Crédit</ion-option>
+      </ion-select>
+
+    </ion-item>
+    <ion-item >
+      <ion-label stacked>Montant</ion-label>
+      <ion-input clearInput placeholder="50 000 000 da" type="number" [(ngModel)]="montant" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Observation</ion-label>
+      <ion-input clearInput  type="text" [(ngModel)]="aj_versement.OBSERVATION" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Date</ion-label>
+      <ion-datetime doneText="OK" pickerFormat="DD/MM/YYYY" displayFormat="DD/MM/YYYY" [(ngModel)]="aj_versement.DATE_P"></ion-datetime>
+    </ion-item>
+    
+  <ion-fab right bottom style="margin-right: 15px;">
+    <button ion-fab (click)="ajouterPayement(aj_versement)" color="marron1">
+      <ion-icon ios="ios-pricetags" md="md-pricetags"></ion-icon>
+    </button>
+  </ion-fab>
+  </ion-list>
+</ion-content>

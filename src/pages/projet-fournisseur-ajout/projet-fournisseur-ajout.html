@@ -1,0 +1,49 @@
+<!--
+  Generated template for the ProjetFournisseurAjoutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="marseille">
+    <ion-title>Achat fournisseur</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list >
+
+   
+    
+    <ion-item>
+      <ion-label>fournisseur</ion-label>
+      
+      <ion-select [(ngModel)]="add_fournisseur.NUM_FOURNISSEUR"
+        interface="popover">
+
+        <ion-option *ngFor="let item of fournisseur" value="{{item.NUM_FOURNISSEUR}}">{{item.NOM}}</ion-option>
+
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Date</ion-label>
+      <ion-input type="date" pickerFormat="DD/MM/YYYY" displayFormat="DD/MM/YYYY" [(ngModel)]="add_fournisseur.DATE_PF" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Montant</ion-label>
+      <ion-input placeholder=" Ex:  25 000 000 DZD"  type="number"  [(ngModel)]="add_fournisseur.MONTANT" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Observation</ion-label>
+      <ion-input clearInput placeholder="Ex:  Boghni T-O"  type="text"  [(ngModel)]="add_fournisseur.OBSERVATION" ></ion-input>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-fab right bottom style="margin-right: 15px;">
+    <button ion-button expand="round" (click)="validerFournisseur(add_fournisseur)"  color="primary">
+      valider
+    </button>
+  </ion-fab>
+</ion-content>

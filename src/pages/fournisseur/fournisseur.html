@@ -1,0 +1,50 @@
+<!--
+  Generated template for the FournisseurPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>fournisseur</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card *ngFor="let item of fournisseur">
+
+    <ion-card-header style="background-color: #b0bb9e;padding-bottom:5px;padding-top:5px;">
+      {{item.NUM_FOURNISSEUR}}
+      <a>
+        <ion-icon name="ios-create"
+          style="float: right;color:#880d0d ;cursor: pointer;font-size: 25px;padding-right: 10px;"
+          (click)="modifierfournisseur(item.NUM_FOURNISSEUR)"></ion-icon>
+      </a>
+      <a title="Supprimer">
+        <ion-icon name="ios-trash"
+          style="float: right;color:#880d0d;cursor: pointer;font-size: 25px;padding-right: 10px;"
+          (click)="supprimerfournisseur(item.NUM_FOURNISSEUR)"></ion-icon>
+      </a>
+    </ion-card-header>
+    <ion-card-content style="padding-top: 10px;">
+
+      <P><b>Nom complet: </b> {{item.PRENOM}} {{item.NOM}} 
+      
+        <a style="float: right;" (click)="detailFournisseur(item.NUM_FOURNISSEUR)">
+          Détails
+        </a></P>
+
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab right bottom style="margin-right: 15px;">
+    <button ion-fab (click)="ajouterFournisseur()" color="marron1">
+      <ion-icon ios="ios-person-add" md="md-person-add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>
